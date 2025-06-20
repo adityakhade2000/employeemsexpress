@@ -3,6 +3,7 @@ const cors = require('cors');
 var cookieParser = require('cookie-parser');
 require('dotenv').config();
 
+const port = process.env.HOST_PORT || 3333
 var jwt = require('jsonwebtoken');
 var adminRouter = require('./routes/adminRoute')
 var employeeRouter = require('./routes/employeeRoute')
@@ -43,7 +44,7 @@ app.get('/verify', verifyUser, (req, res) => {
     return res.json({ Status: true, role: req.role, id: req.id })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('server listening on port 3000')
 })
 
