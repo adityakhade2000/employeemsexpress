@@ -81,6 +81,7 @@ router.get('/category', (req, res) => {
     const sql = "SELECT * FROM category";
     client.query(sql, (err, result) => {
         if (err) return res.json({ status: false, Error: "Query error" })
+        res.send("categories");
         return res.json({ status: true, Result: result.rows })
     })
 })
